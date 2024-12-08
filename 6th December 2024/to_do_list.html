@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <style>
+        /* Basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0077cc;
+            margin-bottom: 20px;
+        }
+
+        #todo-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .delete {
+            color: #e74c3c;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .delete:hover {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main heading of the page -->
+    <h1>To-Do List Application</h1>
+    
+    <!-- Container for the to-do list application -->
+    <div id="todo-container">
+        <!-- Input field for entering tasks -->
+        <input type="text" id="todo-input" placeholder="Enter a new task">
+        <!-- Button to add a new task -->
+        <button onclick="addTask()">Add Task</button>
+        <!-- Unordered list where tasks will appear -->
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+        /**
+         * Function to add a new task to the list
+         */
+        function addTask() {
+            // Get the input field and its value
+            const taskInput = document.getElementById('todo-input');
+            const taskText = taskInput.value.trim();
+
+            // Prevent adding an empty task
+            if (taskText === '') {
+                alert('Please enter a task!');
+                return;
+            }
+
+            // Create a new task element
+            const newTask = document.createElement('li');
+            newTask.innerHTML = `
+                <span>${taskText}</span>
+                <span class="delete" onclick="deleteTask(this)">×</span>
+            `;
+
+            // Append the task to the list
+            const todoList = document.getElementById('todo-list');
+            todoList.appendChild(newTask);
+
+            // Clear the input field
+            taskInput.value = '';
+        }
+
+        /**
+         * Function to delete a task from the list
+         */
+        function deleteTask(taskElement) {
+            // Remove the task from the list
+            const task = taskElement.parentElement;
+            task.remove();
+        }
+    </script>
+</body>
+</html>

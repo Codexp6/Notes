@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML with CSS and JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #0077cc;
+            text-align: center;
+        }
+        ul {
+            list-style-type: square;
+            margin: 20px;
+        }
+        a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #0077cc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to HTML Basics</h1>
+    <p>This is a simple web page created with HTML and styled with CSS, now with interactivity using JavaScript.</p>
+    <ul>
+        <li>HTML defines the structure of a webpage.</li>
+        <li>CSS adds style, such as colors, fonts, and layout.</li>
+        <li>JavaScript adds interactivity and functionality.</li>
+    </ul>
+    <button onclick="showMessage()">Click Me</button>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Learn more about JavaScript</a>
+
+    <script>
+        function showMessage() {
+            alert('Hello! This is an interactive feature added with JavaScript.');
+        }
+    </script>
+</body>
+</html>
